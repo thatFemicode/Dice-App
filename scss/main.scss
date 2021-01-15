@@ -1,0 +1,177 @@
+@import 'variables';
+@import 'mixin';
+@import 'config';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  //   font-family: "Nunito", sans-serif;
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+// img {
+//   max-width: 20%;
+//   height: 10%;
+// }
+// Player
+#main-body {
+  .player {
+    flex: 50%;
+    padding: 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.25s;
+
+    // .player-active {
+    //   background-color: map-get($map: $color-primary, $key: "active");
+    // }
+    // Fixing for Elememts
+    .name {
+      position: relative;
+      font-size: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .score {
+      font-size: 8rem;
+      font-weight: 300;
+      color: map-get($map: $color-primary, $key: text);
+    }
+    .current {
+      background-color: map-get($map: $color-primary, $key: 'active');
+      opacity: 1;
+      border-radius: 9px;
+      color: #fff;
+      width: 65%;
+      padding: 2rem;
+      text-align: center;
+      transition: all, 0.75s;
+
+      .current-label {
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-size: 1.7rem;
+        color: #ddd;
+      }
+      .current-score {
+        font-size: 3.5rem;
+      }
+    }
+  }
+  //   Deasling with Absolute postioned elements
+
+  .dice {
+    position: absolute;
+    left: 50%;
+    top: 16.5rem;
+    transform: translateX(-50%);
+    height: 10rem;
+    box-shadow: 0 2rem 5rem map-get($map: $color-primary, $key: 'btn-active');
+
+    // #dice-1 {
+    //   top: 120px;
+    // }
+    // #dice-1 {
+    //   top: 250px;
+    // }
+    @include for-phone-only {
+      // min-width: 40rem;
+      // max-width: 100%;
+      // transform: translateX(40%);
+    }
+  }
+  #dice-1 {
+    top: 120px;
+  }
+  #dice-1 {
+    top: 280px;
+  }
+  .btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #444;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.2s;
+    background-color: white;
+    background-color: map-get($map: $color-primary, $key: 'btn');
+    backdrop-filter: blur(10px);
+    padding: 0.7rem 2.5rem;
+    border-radius: 50rem;
+    box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+
+    &::first-letter {
+      font-size: 2.4rem;
+    }
+    &:active {
+      transform: translateX((-50%, 3px));
+      box-shadow: 0 1rem 2rem map-get($map: $color-primary, $key: 'btn-active');
+    }
+    &:focus {
+      outline: none;
+    }
+    &-new {
+      top: 4rem;
+    }
+    &-roll {
+      top: 39.3rem;
+    }
+    &-hold {
+      top: 46.1rem;
+    }
+  }
+  // .btn-new {
+  //   top: 4rem;
+  // }
+  .final-score {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 520px;
+    color: #555;
+    font-size: 18px;
+    text-transform: uppercase;
+    width: 160px;
+    padding: 10px;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.player-winner {
+  background-color: #2f2f2f;
+
+  .name {
+    font-weight: 700;
+    color: map-get($map: $color-primary, $key: 'text');
+  }
+}
+.hidden {
+  display: none;
+}
+
+@import 'mixin';

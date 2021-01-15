@@ -1,0 +1,28 @@
+#main-body {
+  position: relative;
+  width: 100rem;
+  height: 60rem;
+  background-color: map-get($map: $color-primary, $key: 'back');
+  filter: blur();
+  box-shadow: 0 3rem 5rem map-get($map: $color-primary, $key: 'box');
+  backdrop-filter: blur(200px);
+  border-radius: 9px;
+  //   overflow: hidden;
+  display: flex;
+
+  //   .player {
+  //     flex: 50%;
+  //   }
+}
+.player-active {
+  background-color: map-get($map: $color-primary, $key: 'active');
+  .name {
+    font-weight: 700;
+  }
+  .score {
+    font-weight: 400;
+  }
+  .current {
+    opacity: 1;
+  }
+}
