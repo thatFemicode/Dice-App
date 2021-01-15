@@ -67,53 +67,53 @@ const switchPlayer = () => {
   //   dice02.style.display = 'none';
   //   dicestyle(dice01, dice02);
 };
-function calc() {
-  const dice1 = Math.trunc(Math.random() * 6) + 1;
-  const dice2 = Math.trunc(Math.random() * 6) + 1;
-  dice01.style.display = 'block';
-  dice02.style.display = 'block';
-  //   winningScore = inputs;
-  if (dice01 != 1 && dice02 != 1) {
-    currentScore += dice1 + dice2;
-    document.querySelector(
-      `#current-${activePlayer}`
-    ).textContent = currentScore;
-    if (playing) {
-      scores[activePlayer] = scores[activePlayer] + currentScore;
+// function calc() {
+//   const dice1 = Math.trunc(Math.random() * 6) + 1;
+//   const dice2 = Math.trunc(Math.random() * 6) + 1;
+//   dice01.style.display = 'block';
+//   dice02.style.display = 'block';
+//   //   winningScore = inputs;
+//   if (dice1 != 1 && dice2 != 1) {
+//     currentScore += dice1 + dice2;
+//     document.querySelector(
+//       `#current-${activePlayer}`
+//     ).textContent = currentScore;
+//     if (playing) {
+//       scores[activePlayer] = scores[activePlayer] + currentScore;
 
-      document.querySelector(`#score-${activePlayer}`).textContent =
-        scores[activePlayer];
+//       document.querySelector(`#score-${activePlayer}`).textContent =
+//         scores[activePlayer];
 
-      let inputs = input.value;
-      // let winningScore;
+//       let inputs = input.value;
+//       // let winningScore;
 
-      if (inputs === '') {
-        winningScore = 100;
-      } else {
-        winningScore = inputs;
-      }
-      if (scores[activePlayer] >= winningScore) {
-        // Chrck if players score is >= 100
-        playing = false;
-        dice.classList.add('hidden');
-        document
-          .querySelector(`.player-${activePlayer}`)
-          .classList.add('player-winner');
-        //   dice01.style.display = 'none';
-        //   dice02.style.display = 'none';
-        dicestyle(dice01, dice02);
-        document
-          .querySelector(`.player-${activePlayer}`)
-          .classList.remove('player-active');
-        document.querySelector(
-          `#name-${activePlayer}`
-        ).textContent = ` WINNER!`;
-      }
-    }
-  } else {
-    switchPlayer();
-  }
-}
+//       if (inputs === '') {
+//         winningScore = 100;
+//       } else {
+//         winningScore = inputs;
+//       }
+//       if (scores[activePlayer] >= winningScore) {
+//         // Chrck if players score is >= 100
+//         playing = false;
+//         dice.classList.add('hidden');
+//         document
+//           .querySelector(`.player-${activePlayer}`)
+//           .classList.add('player-winner');
+//         //   dice01.style.display = 'none';
+//         //   dice02.style.display = 'none';
+//         dicestyle(dice01, dice02);
+//         document
+//           .querySelector(`.player-${activePlayer}`)
+//           .classList.remove('player-active');
+//         // document.querySelector(
+//         //   `#name-${activePlayer}`
+//         // ).textContent = ` WINNER!`;
+//       }
+//     }
+//   } else {
+//     switchPlayer();
+//   }
+// }
 
 // Function when dice is rolled
 btnRoll.addEventListener('click', diceRoll);
@@ -132,70 +132,61 @@ function diceRoll() {
     dice01.style.display = 'block';
     dice02.style.display = 'block';
     // dice.style.display = 'block';
-    dice01.classList.remove('hidden');
+    // dice01.classList.remove('hidden');
     dice01.src = `./img/dice-${dice1}.png`;
     dice02.src = `./img/dice-${dice2}.png`;
     let inputs = input.value;
     // check if dice rolled 1
     if (inputs === '') {
       winningScore = 100;
-      calc();
+      // calc();
     } else if ((winningScore = inputs)) {
-      calc();
-      //   dice01.style.display = 'block';
-      //   dice02.style.display = 'block';
+      // calc();
+      dice01.style.display = 'block';
+      dice02.style.display = 'block';
       //   //   winningScore = inputs;
-      //   if (dice01 != 1 && dice2 != 1) {
-      //     currentScore += dice1 + dice2;
-      //     document.querySelector(
-      //       `#current-${activePlayer}`
-      //     ).textContent = currentScore;
-      //     if (playing) {
-      //       scores[activePlayer] = scores[activePlayer] + currentScore;
+      if (dice1 != 1 && dice2 != 1) {
+        currentScore += dice1 + dice2;
+        document.querySelector(
+          `#current-${activePlayer}`
+        ).textContent = currentScore;
+        scores[activePlayer] = scores[activePlayer] + currentScore;
+        document.querySelector(`#score-${activePlayer}`).textContent =
+          scores[activePlayer];
 
-      //       document.querySelector(`#score-${activePlayer}`).textContent =
-      //         scores[activePlayer];
-
-      //       let inputs = input.value;
-      //       // let winningScore;
-
-      //       if (inputs === '') {
-      //         winningScore = 100;
-      //       } else {
-      //         winningScore = inputs;
-      //       }
-      //       if (scores[activePlayer] >= winningScore) {
-      //         // Chrck if players score is >= 100
-      //         playing = false;
-      //         dice.classList.add('hidden');
-      //         document
-      //           .querySelector(`.player-${activePlayer}`)
-      //           .classList.add('player-winner');
-      //         //   dice01.style.display = 'none';
-      //         //   dice02.style.display = 'none';
-      //         dicestyle(dice01, dice02);
-      //         document
-      //           .querySelector(`.player-${activePlayer}`)
-      //           .classList.remove('player-active');
-      //         document.querySelector(
-      //           `#name-${activePlayer}`
-      //         ).textContent = ` WINNER!`;
-      //       }
-      //     }
-      //   }
+        if (scores[activePlayer] >= winningScore) {
+          // Chrck if players score is >= 100
+          playing = false;
+          dice.classList.add('hidden');
+          document
+            .querySelector(`.player-${activePlayer}`)
+            .classList.add('player-winner');
+          //   dice01.style.display = 'none';
+          //   dice02.style.display = 'none';
+          dicestyle(dice01, dice02);
+          document
+            .querySelector(`.player-${activePlayer}`)
+            .classList.remove('player-active');
+          // document.querySelector(
+          //   `#name-${activePlayer}`
+          // ).textContent = ` WINNER!`;
+        }
+      } else {
+        switchPlayer();
+      }
     }
-  } else {
-    switchPlayer();
+    // } else {
+    //   switchPlayer();
   }
-
-  // if (dice01 != 1 && dice2 != 1) {
-  //   currentScore += dice1 + dice2;
-  //   document.querySelector(
-  //     `#current-${activePlayer}`
-  //   ).textContent = currentScore;
-  //   // } else {
-  //   switchPlayer();
 }
+
+// if (dice01 != 1 && dice2 != 1) {
+//   currentScore += dice1 + dice2;
+//   document.querySelector(
+//     `#current-${activePlayer}`
+//   ).textContent = currentScore;
+//   // } else {
+//   switchPlayer();
 
 //     if (lastDice === 6 && dices === 6) {
 //       // Player looses score
