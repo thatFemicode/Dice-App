@@ -110,6 +110,8 @@ function calc() {
         ).textContent = ` WINNER!`;
       }
     }
+  } else {
+    switchPlayer();
   }
 }
 
