@@ -124,7 +124,7 @@ function diceRoll() {
     // Generate a random number for dice
     const dice1 = Math.trunc(Math.random() * 6) + 1;
     const dice2 = Math.trunc(Math.random() * 6) + 1;
-    // The vaiable above eill give us values from 0-6
+    // The value above eill give us values from 0-6
     // If playing display the dice now
 
     // const dice01 = document.getElementById('dice-1');
@@ -133,8 +133,8 @@ function diceRoll() {
     dice02.style.display = 'block';
     // dice.style.display = 'block';
     // dice01.classList.remove('hidden');
-    dice01.src = `./img/dice-${dice1}.png`;
-    dice02.src = `./img/dice-${dice2}.png`;
+    dice01.src = `./dist/img/dice-${dice1}.png`;
+    dice02.src = `./dist/img/dice-${dice2}.png`;
     let inputs = input.value;
     // check if dice rolled 1
     if (inputs === '') {
@@ -150,7 +150,7 @@ function diceRoll() {
         document.querySelector(
           `#current-${activePlayer}`
         ).textContent = currentScore;
-        scores[activePlayer] = scores[activePlayer] + currentScore;
+        scores[activePlayer] += currentScore;
         document.querySelector(`#score-${activePlayer}`).textContent =
           scores[activePlayer];
 
