@@ -3,3 +3,7 @@
 # Game flowchart and algorithm with live pictures 😁
 
 ![Game flowchart](./dist/img/pig-game-flowchart.png)
+
+# App is live
+
+ludo-dice.netlify.app
