@@ -2,4 +2,4 @@
 
 # Game flowchart and algorithm with live pictures 😁
 
-![Game flowchart](./dist/img/pig-game-flowchart.png) (./dist/img/Game page.png) (./dist/img/Game in play.png)
+![Game flowchart](./dist/img/pig-game-flowchart.png)
